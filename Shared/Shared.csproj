@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomExceptions\DatabaseUpdationException.cs" />
     <Compile Include="Enums\BooleanType.cs" />
     <Compile Include="Enums\GenderType.cs" />
     <Compile Include="Enums\MaritalStatusType.cs" />
@@ -57,6 +58,11 @@
     <Compile Include="Enums\RelationToHeadType.cs" />
     <Compile Include="Enums\UserRequestStatusType.cs" />
     <Compile Include="Interfaces\IDomain.cs" />
+    <Compile Include="Interfaces\IHouseMemberUnitOfWork.cs" />
+    <Compile Include="Interfaces\IHouseUnitOfWork.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\IUserUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

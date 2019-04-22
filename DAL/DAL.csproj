@@ -60,6 +60,17 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\HouseMemberRepository.cs" />
+    <Compile Include="Repositories\HouseRepository.cs" />
+    <Compile Include="Repositories\RepositoryBaseClass.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="RepositoryInterface\IHouseMemberRepository.cs" />
+    <Compile Include="RepositoryInterface\IHouseRepository.cs" />
+    <Compile Include="RepositoryInterface\IUserRepository.cs" />
+    <Compile Include="UnitOfWork\HouseMemberUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\HouseUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkBaseClass.cs" />
+    <Compile Include="UnitOfWork\UserUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shared\Shared.csproj">
@@ -76,5 +87,6 @@
       <DependentUpon>201904221321469_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
