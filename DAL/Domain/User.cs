@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Shared.Enums;
 
@@ -28,6 +29,14 @@ namespace DAL.Domain
         public string AadharNumber { get; set; }
 
         [Required]
-        public BooleanType IsApprover { get;set }
+        public BooleanType IsApprover { get; set; }
+
+        
+        public int? RequestStatusId { get; set; }
+
+        [ForeignKey("RequestStatusId")]
+        public virtual UserCurrentRequestStatus UserCurrentRequestStatus { get; set; }
+
+        public virtual ICollection<HouseMember> RegisteredHouseMembers { get; set; }
     }
 }

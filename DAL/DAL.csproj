@@ -48,8 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DatabaseContext.cs" />
     <Compile Include="Domain\DomainBaseClass.cs" />
+    <Compile Include="Domain\House.cs" />
+    <Compile Include="Domain\HouseMember.cs" />
     <Compile Include="Domain\User.cs" />
+    <Compile Include="Domain\UserCurrentRequestStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

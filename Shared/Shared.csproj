@@ -49,6 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\BooleanType.cs" />
+    <Compile Include="Enums\GenderType.cs" />
+    <Compile Include="Enums\MaritalStatusType.cs" />
+    <Compile Include="Enums\OccupationNatureType.cs" />
+    <Compile Include="Enums\OccupationStatusType.cs" />
+    <Compile Include="Enums\OwnershipStatusType.cs" />
+    <Compile Include="Enums\RelationToHeadType.cs" />
     <Compile Include="Enums\UserRequestStatusType.cs" />
     <Compile Include="Interfaces\IDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
