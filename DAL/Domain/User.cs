@@ -7,7 +7,6 @@ namespace DAL.Domain
 {
     public class User : DomainBaseClass
     {
-        [Index(IsUnique = true)]
         [Required]
         public string Email { get; set; }
 
@@ -23,7 +22,6 @@ namespace DAL.Domain
         [Required]
         public string ProfileImage { get; set; }
 
-        [Index(IsUnique = true)]
         [StringLength(12)]
         [Required]
         public string AadharNumber { get; set; }
@@ -32,11 +30,6 @@ namespace DAL.Domain
         public BooleanType IsApprover { get; set; }
 
         
-        public int? RequestStatusId { get; set; }
-
-        [ForeignKey("RequestStatusId")]
-        public virtual UserCurrentRequestStatus UserCurrentRequestStatus { get; set; }
-
         public virtual ICollection<HouseMember> RegisteredHouseMembers { get; set; }
     }
 }

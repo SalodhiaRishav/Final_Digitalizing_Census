@@ -5,7 +5,7 @@ using Shared.Enums;
 
 namespace DAL.Domain
 {
-    public class HouseMember
+    public class HouseMember : DomainBaseClass
     {
         [Required]
         public string FirstName { get; set; }
