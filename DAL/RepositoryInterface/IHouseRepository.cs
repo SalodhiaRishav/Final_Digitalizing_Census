@@ -3,7 +3,7 @@ using DAL.Domain;
 
 namespace DAL.RepositoryInterface
 {
-    interface IHouseRepository :IRepository<House>
+    public interface IHouseRepository :IRepository<House>
     {
     }
 }
