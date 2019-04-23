@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AutoMapper;
 using DAL.Domain;
 using Shared.DTO;
@@ -34,6 +30,13 @@ namespace BL
             return Mapper.Map<HouseDTO>(house);
         }
 
+
+
+        public List<HouseDTO> HouseListToHouseDTOList(List<House> houses)
+        {
+            return Mapper.Map<List<HouseDTO>>(houses);
+        }
+
         public HouseMemberDTO HouseMemberToHouseMemberDTO(HouseMember houseMember)
         {
             return Mapper.Map<HouseMemberDTO>(houseMember);
@@ -42,6 +45,16 @@ namespace BL
         public UserDTO UserToUserDTO(User user)
         {
             return Mapper.Map<UserDTO>(user);
+        }
+
+        public User UserDTOToUser(UserDTO userDTO)
+        {
+            return Mapper.Map<User>(userDTO);
+        }
+
+        public List<UserDTO> UserListToUserDTOList(List<User> users)
+        {
+            return Mapper.Map<List<UserDTO>>(users);
         }
 
         public UserCurrentRequestStatusDTO UserCurrentRequestStatusToUserCurrentRequestStatusDTO(UserCurrentRequestStatus userCurrentRequestStatus)

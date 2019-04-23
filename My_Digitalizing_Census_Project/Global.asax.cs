@@ -14,6 +14,7 @@ namespace My_Digitalizing_Census_Project
     {
         protected void Application_Start()
         {
+            UnityConfig.RegisterComponents();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

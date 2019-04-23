@@ -8,7 +8,7 @@ namespace Shared.Interfaces
     public interface IRepository<T> where T : class
     {
         List<T> List { get; }
-        void Add(T entity);
+        bool Add(T entity);
         void Delete(T entity);
         void Update(T entity);
         T FindById(int Id);

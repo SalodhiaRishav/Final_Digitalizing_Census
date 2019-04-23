@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Shared.Interfaces.BusinessLayerInterfaces;
 
 namespace My_Digitalizing_Census_Project.Controllers
 {
     public class HomeController : Controller
     {
+ 
+        
         public ActionResult Index()
         {
+        
             return View();
         }
 

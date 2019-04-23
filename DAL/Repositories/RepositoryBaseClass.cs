@@ -19,11 +19,12 @@ namespace DAL.Repositories
         }
         public List<T> List { get => DbSet.ToList(); }
 
-        public void Add(T entity)
+        public bool Add(T entity)
         {
             DbSet.Add(entity);
-            UnitOfWork.Commit();
-            return;
+            bool isCommited=UnitOfWork.Commit();
+            return isCommited;
+            
         }
 
         public void AddRange(IEnumerable<T> entityList)

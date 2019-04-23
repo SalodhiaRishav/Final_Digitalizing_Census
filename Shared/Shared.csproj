@@ -84,6 +84,7 @@
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IUserCurrentRequestStatusUnitOfWork.cs" />
     <Compile Include="Interfaces\IUserUnitOfWork.cs" />
+    <Compile Include="MessageFormat\RequestMessageFormat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
