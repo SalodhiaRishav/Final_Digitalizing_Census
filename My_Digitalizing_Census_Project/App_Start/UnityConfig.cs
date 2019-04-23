@@ -3,6 +3,8 @@ using DAL.RepositoryInterface;
 using DAL.Repositories;
 using Shared.Interfaces;
 using DAL.UnitOfWork;
+using BL.BusinessLogics;
+using Shared.Interfaces.BusinessLayerInterfaces;
 using Unity;
 
 namespace My_Digitalizing_Census_Project
@@ -58,6 +60,15 @@ namespace My_Digitalizing_Census_Project
             container.RegisterType<IUserCurrentRequestStatusRepository, UserCurrentRequestStatusRepository>();
 
             container.RegisterType<IUserCurrentRequestStatusUnitOfWork, UserCurrentRequestStatusUnitOfWork>();
+
+            container.RegisterType<IUserBusinessLayer, UserBusinessLogic>();
+
+            container.RegisterType<IHouseMemberBusinessLayer, HouseMemberBusinessLogic>();
+
+            container.RegisterType<IHouseUnitOfWork, HouseUnitOfWork>();
+
+            container.RegisterType<IUserCurrentRequestStatusBusinessLayer, UserCurrentRequestStatusBusinessLogic>();
+
 
 
         }
