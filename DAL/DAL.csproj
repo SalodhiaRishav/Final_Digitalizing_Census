@@ -63,13 +63,16 @@
     <Compile Include="Repositories\HouseMemberRepository.cs" />
     <Compile Include="Repositories\HouseRepository.cs" />
     <Compile Include="Repositories\RepositoryBaseClass.cs" />
+    <Compile Include="Repositories\UserCurrentRequestStatusRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="RepositoryInterface\IHouseMemberRepository.cs" />
     <Compile Include="RepositoryInterface\IHouseRepository.cs" />
+    <Compile Include="RepositoryInterface\IUserCurrentRequestStatusRepository.cs" />
     <Compile Include="RepositoryInterface\IUserRepository.cs" />
     <Compile Include="UnitOfWork\HouseMemberUnitOfWork.cs" />
     <Compile Include="UnitOfWork\HouseUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UnitOfWorkBaseClass.cs" />
+    <Compile Include="UnitOfWork\UserCurrentRequestStatusUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UserUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

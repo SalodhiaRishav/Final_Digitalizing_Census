@@ -55,8 +55,9 @@ namespace My_Digitalizing_Census_Project
 
             container.RegisterType<IHouseMemberRepository, HouseMemberRepository>();
 
+            container.RegisterType<IUserCurrentRequestStatusRepository, UserCurrentRequestStatusRepository>();
 
-
+            container.RegisterType<IUserCurrentRequestStatusUnitOfWork, UserCurrentRequestStatusUnitOfWork>();
 
 
         }
