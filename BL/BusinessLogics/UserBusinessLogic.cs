@@ -15,6 +15,7 @@ namespace BL.BusinessLogics
     {
         private AutoMapperConfigurations AutoMapperConfigurations = new AutoMapperConfigurations();
         private IUserRepository UserRepository;
+        RequestMessageFormat requestMessageFormat = new RequestMessageFormat();
         public UserBusinessLogic(IUserRepository userRepository)
         {
             
@@ -39,7 +40,7 @@ namespace BL.BusinessLogics
             user.CreatedOn = DateTime.Now;
             user.ModifiedOn = DateTime.Now;
             bool isAdded= this.UserRepository.Add(user);
-            RequestMessageFormat requestMessageFormat = new RequestMessageFormat();
+            
 
             if(isAdded)
             {
@@ -52,6 +53,47 @@ namespace BL.BusinessLogics
 
             return requestMessageFormat;
 
+        }
+        public RequestMessageFormat DeleteUser(int id)
+        {
+            User user = this.UserRepository.FindById(id);
+            if(user==null)
+            {
+                requestMessageFormat.Message = "User Not Exist";
+            }
+            else
+            {
+                bool isDeleted=this.UserRepository.Delete(user);
+                if(isDeleted)
+                {
+                    requestMessageFormat.Message = "Deleted Successfully";
+                }
+                else
+                {
+                    requestMessageFormat.Message = "Some Error Occurred";
+                }
+            }
+
+            return requestMessageFormat;
+        }
+
+        public RequestMessageFormat UpdateUser(UserDTO userDTO)
+        {
+
+            User user = this.AutoMapperConfigurations.UserDTOToUser(userDTO);
+           
+                bool isUpdated = this.UserRepository.Update(user);
+                if (isUpdated)
+                {
+                    requestMessageFormat.Message = "Updated Successfully";
+                }
+                else
+                {
+                    requestMessageFormat.Message = "Some Error Occurred";
+                }
+            
+
+            return requestMessageFormat;
         }
 
     }

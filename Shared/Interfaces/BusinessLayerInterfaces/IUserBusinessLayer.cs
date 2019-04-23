@@ -13,5 +13,9 @@ namespace Shared.Interfaces.BusinessLayerInterfaces
 
         RequestMessageFormat AddNewUser(UserDTO userDTO);
         List<UserDTO> GetAllUsers();
+        UserDTO GetUserById(int id);
+        RequestMessageFormat DeleteUser(int id);
+        RequestMessageFormat UpdateUser(UserDTO userDTO);
+
     }
 }

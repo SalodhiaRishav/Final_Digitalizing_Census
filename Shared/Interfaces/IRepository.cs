@@ -9,8 +9,8 @@ namespace Shared.Interfaces
     {
         List<T> List { get; }
         bool Add(T entity);
-        void Delete(T entity);
-        void Update(T entity);
+        bool Delete(T entity);
+        bool Update(T entity);
         T FindById(int Id);
         void AddRange(IEnumerable<T> entityList);
         void DeleteRange(IEnumerable<T> entityList);

@@ -33,10 +33,11 @@ namespace DAL.Repositories
             UnitOfWork.Commit();
         }
 
-        public void Delete(T entity)
+        public bool Delete(T entity)
         {
             DbSet.Remove(entity);
-            UnitOfWork.Commit();
+            bool isCommited=UnitOfWork.Commit();
+            return isCommited;
         }
 
         public void DeleteRange(IEnumerable<T> entityList)
@@ -55,10 +56,11 @@ namespace DAL.Repositories
             return DbSet.Find(Id);
         }
 
-        public void Update(T entity)
+        public bool Update(T entity)
         {
             UnitOfWork.DbContext.Entry(entity).State = EntityState.Modified;
-            UnitOfWork.Commit();
+           bool isComitted= UnitOfWork.Commit();
+            return isComitted;
         }
     }
 }

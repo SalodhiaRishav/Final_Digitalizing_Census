@@ -20,12 +20,7 @@ namespace My_Digitalizing_Census_Project.Controllers
     {
 
          private IUserBusinessLayer UserBusinessLogic;
-        //private UserBusinessLogic UserBusinessLogic = new UserBusinessLogic(new UserRepository(new UserUnitOfWork()));
-
-        //public UserController()
-        //{
-
-        //}
+       
         public UserController(IUserBusinessLayer userBusinessLayer)
         {
             UserBusinessLogic = userBusinessLayer;
@@ -38,11 +33,30 @@ namespace My_Digitalizing_Census_Project.Controllers
             return Json(this.UserBusinessLogic.GetAllUsers());
         }
 
+        [System.Web.Mvc.HttpGet]
+        public JsonResult<UserDTO> GetUser(int id)
+        {
+
+            return Json(this.UserBusinessLogic.GetUserById(id));
+        }
+
         [System.Web.Mvc.HttpPost]
         public JsonResult<RequestMessageFormat> AddUser([FromBody]UserDTO userDTO)
         {
-
             return Json(this.UserBusinessLogic.AddNewUser(userDTO));
         }
+
+        [System.Web.Mvc.HttpDelete]
+        public JsonResult<RequestMessageFormat> DeleteUser(int id)
+        {
+            return Json(this.UserBusinessLogic.DeleteUser(id));
+        }
+
+        //[System.Web.Mvc.HttpPut]
+        //public JsonResult<RequestMessageFormat> UpdateUser([FromBody]UserDTO userDTO)
+        //{
+        //    return Json(this.UserBusinessLogic.UpdateUser(userDTO));
+        //}
+
     }
 }
