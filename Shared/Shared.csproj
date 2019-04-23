@@ -57,6 +57,10 @@
     <Compile Include="Enums\OwnershipStatusType.cs" />
     <Compile Include="Enums\RelationToHeadType.cs" />
     <Compile Include="Enums\UserRequestStatusType.cs" />
+    <Compile Include="Interfaces\BusinessLayerInterfaces\IHouseBusinessLayer.cs" />
+    <Compile Include="Interfaces\BusinessLayerInterfaces\IHouseMemberBusinessLayer.cs" />
+    <Compile Include="Interfaces\BusinessLayerInterfaces\IUserBusinessLayer.cs" />
+    <Compile Include="Interfaces\BusinessLayerInterfaces\IUserCurrentRequestStatusBusinessLayer.cs" />
     <Compile Include="Interfaces\IDomain.cs" />
     <Compile Include="Interfaces\IHouseMemberUnitOfWork.cs" />
     <Compile Include="Interfaces\IHouseUnitOfWork.cs" />

@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogics\HouseBusinessLogic.cs" />
+    <Compile Include="BusinessLogics\HouseMemberBusinessLogic.cs" />
+    <Compile Include="BusinessLogics\UserBusinessLogic.cs" />
+    <Compile Include="BusinessLogics\UserCurrentRequestStatusBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,5 +57,6 @@
       <Name>Shared</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

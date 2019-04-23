@@ -7,6 +7,8 @@ namespace DAL.Domain
 {
     public class User : DomainBaseClass
     {
+        [MaxLength(50)]
+        [Index(IsUnique =true)]
         [Required]
         public string Email { get; set; }
 
@@ -22,7 +24,8 @@ namespace DAL.Domain
         [Required]
         public string ProfileImage { get; set; }
 
-        [StringLength(12)]
+        [MaxLength(12)]
+        [Index(IsUnique = true)]
         [Required]
         public string AadharNumber { get; set; }
 
