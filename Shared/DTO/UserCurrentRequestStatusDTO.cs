@@ -7,7 +7,7 @@ using Shared.Enums;
 
 namespace Shared.DTO
 {
-    public class UserCurrentRequestStatutsDTO
+    public class UserCurrentRequestStatusDTO
     {
         public int ID { get; set; }
 

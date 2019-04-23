@@ -63,7 +63,7 @@
     <Compile Include="CustomExceptions\DatabaseUpdationException.cs" />
     <Compile Include="DTO\HouseDTO.cs" />
     <Compile Include="DTO\HouseMemberDTO.cs" />
-    <Compile Include="DTO\UserCurrentRequestStatutsDTO.cs" />
+    <Compile Include="DTO\UserCurrentRequestStatusDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Enums\BooleanType.cs" />
     <Compile Include="Enums\GenderType.cs" />
