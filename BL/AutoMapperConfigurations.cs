@@ -30,7 +30,16 @@ namespace BL
             return Mapper.Map<HouseDTO>(house);
         }
 
+        public House HouseDTOToHouse(HouseDTO houseDTO)
+        {
+            return Mapper.Map<House>(houseDTO);
+        }
 
+
+        public List<House> HouseDTOListToHouseList(List<HouseDTO> houseDTOs)
+        {
+            return Mapper.Map<List<House>>(houseDTOs);
+        }
 
         public List<HouseDTO> HouseListToHouseDTOList(List<House> houses)
         {
@@ -41,6 +50,22 @@ namespace BL
         {
             return Mapper.Map<HouseMemberDTO>(houseMember);
         }
+
+        public HouseMember HouseMemberDTOToHouseMember(HouseMemberDTO houseMemberDTO)
+        {
+            return Mapper.Map<HouseMember>(houseMemberDTO);
+        }
+
+        public List<HouseMemberDTO> HouseMemberListToHouseMemberDTOList(List<HouseMember> houseMemberList)
+        {
+            return Mapper.Map<List<HouseMemberDTO>>(houseMemberList);
+        }
+
+        public List<HouseMember> HouseMemberDTOListToHouseMemberList(List<HouseMemberDTO> houseMemberDTOList)
+        {
+            return Mapper.Map<List<HouseMember>>(houseMemberDTOList);
+        }
+
 
         public UserDTO UserToUserDTO(User user)
         {
@@ -55,6 +80,11 @@ namespace BL
         public List<UserDTO> UserListToUserDTOList(List<User> users)
         {
             return Mapper.Map<List<UserDTO>>(users);
+        }
+
+        public List<User> UserDTOListToUserList(List<UserDTO> userDTOList)
+        {
+            return Mapper.Map<List<User>>(userDTOList);
         }
 
         public UserCurrentRequestStatusDTO UserCurrentRequestStatusToUserCurrentRequestStatusDTO(UserCurrentRequestStatus userCurrentRequestStatus)

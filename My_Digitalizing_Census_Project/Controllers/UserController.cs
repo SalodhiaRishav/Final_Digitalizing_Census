@@ -19,7 +19,7 @@ namespace My_Digitalizing_Census_Project.Controllers
     public class UserController : ApiController
     {
 
-         private IUserBusinessLayer UserBusinessLogic;
+        private IUserBusinessLayer UserBusinessLogic;
        
         public UserController(IUserBusinessLayer userBusinessLayer)
         {
@@ -27,33 +27,32 @@ namespace My_Digitalizing_Census_Project.Controllers
         }
 
         [System.Web.Mvc.HttpGet]
-        public JsonResult<List<UserDTO>> GetAllUsers()
+        public JsonResult<RequestMessageFormat<List<UserDTO>>> GetAll()
         {
-
-            return Json(this.UserBusinessLogic.GetAllUsers());
+            return Json(this.UserBusinessLogic.GetAll());
         }
 
         [System.Web.Mvc.HttpGet]
-        public JsonResult<UserDTO> GetUser(int id)
+        public JsonResult<RequestMessageFormat<UserDTO>> Get(int id)
         {
 
-            return Json(this.UserBusinessLogic.GetUserById(id));
+            return Json(this.UserBusinessLogic.GetById(id));
         }
 
         [System.Web.Mvc.HttpPost]
-        public JsonResult<RequestMessageFormat> AddUser([FromBody]UserDTO userDTO)
+        public JsonResult<RequestMessageFormat<UserDTO>> Add([FromBody]UserDTO userDTO)
         {
-            return Json(this.UserBusinessLogic.AddNewUser(userDTO));
+            return Json(this.UserBusinessLogic.Add(userDTO));
         }
 
         [System.Web.Mvc.HttpDelete]
-        public JsonResult<RequestMessageFormat> DeleteUser(int id)
+        public JsonResult<RequestMessageFormat<UserDTO>> Delete(int id)
         {
-            return Json(this.UserBusinessLogic.DeleteUser(id));
+            return Json(this.UserBusinessLogic.Delete(id));
         }
 
-        //[System.Web.Mvc.HttpPut]
-        //public JsonResult<RequestMessageFormat> UpdateUser([FromBody]UserDTO userDTO)
+        //[System.Web.Mvc.HttpPatch]
+        //public JsonResult<RequestMessageFormat<UserDTO>> UpdateUser([FromBody]UserDTO userDTO)
         //{
         //    return Json(this.UserBusinessLogic.UpdateUser(userDTO));
         //}

@@ -11,11 +11,11 @@ namespace Shared.Interfaces.BusinessLayerInterfaces
     public interface IUserBusinessLayer
     {
 
-        RequestMessageFormat AddNewUser(UserDTO userDTO);
-        List<UserDTO> GetAllUsers();
-        UserDTO GetUserById(int id);
-        RequestMessageFormat DeleteUser(int id);
-        RequestMessageFormat UpdateUser(UserDTO userDTO);
+        RequestMessageFormat<UserDTO> Add(UserDTO userDTO);
+        RequestMessageFormat<List<UserDTO>> GetAll();
+        RequestMessageFormat<UserDTO> GetById(int id);
+        RequestMessageFormat<UserDTO> Delete(int id);
+        RequestMessageFormat<UserDTO> Update(UserDTO userDTO);
 
     }
 }

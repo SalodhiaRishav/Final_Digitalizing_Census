@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Shared.MessageFormat
 {
-    public class RequestMessageFormat
+    public class RequestMessageFormat<T>
     {
        public string Message { get; set; }
 
+       public bool Success { get; set; }
 
+       public T Data { get; set; }
     }
 }

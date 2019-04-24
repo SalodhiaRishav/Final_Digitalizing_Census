@@ -31,6 +31,8 @@ namespace My_Digitalizing_Census_Project
 
             container.RegisterType<IUserCurrentRequestStatusUnitOfWork, UserCurrentRequestStatusUnitOfWork>();
 
+            container.RegisterType<IHouseBusinessLayer, HouseBusinessLogic>();
+
             container.RegisterType<IUserBusinessLayer, UserBusinessLogic>();
 
             container.RegisterType<IHouseMemberBusinessLayer, HouseMemberBusinessLogic>();
