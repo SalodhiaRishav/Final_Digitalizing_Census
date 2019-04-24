@@ -46,11 +46,6 @@ namespace BL.BusinessLogics
                 return response;
             }
          
-
-         
-
-
-
             House house = this.AutoMapperConfigurations.HouseDTOToHouse(houseDTO);
             bool isAdded = this.HouseRepository.Add(house);
 

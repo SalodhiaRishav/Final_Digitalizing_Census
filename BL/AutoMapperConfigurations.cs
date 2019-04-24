@@ -92,5 +92,20 @@ namespace BL
             return Mapper.Map<UserCurrentRequestStatusDTO>(userCurrentRequestStatus);
         }
 
+        public UserCurrentRequestStatus UserCurrentRequestStatusDTOToUserCurrentRequestStatus(UserCurrentRequestStatusDTO userCurrentRequestStatusDTO)
+        {
+            return Mapper.Map<UserCurrentRequestStatus>(userCurrentRequestStatusDTO);
+        }
+
+        public List<UserCurrentRequestStatus> UserCurrentRequestStatusDTOListToUserCurrentRequestStatusList(List<UserCurrentRequestStatusDTO> userCurrentRequestStatusDTOList)
+        {
+            return Mapper.Map<List<UserCurrentRequestStatus>>(userCurrentRequestStatusDTOList);
+        }
+
+        public List<UserCurrentRequestStatusDTO> UserCurrentRequestStatusListToUserCurrentRequestStatusDTOList(List<UserCurrentRequestStatus> userCurrentRequestStatusList)
+        {
+            return Mapper.Map<List<UserCurrentRequestStatusDTO>>(userCurrentRequestStatusList);
+        }
+
     }
 }
