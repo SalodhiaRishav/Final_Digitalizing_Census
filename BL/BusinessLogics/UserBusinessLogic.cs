@@ -7,6 +7,7 @@ using DAL.RepositoryInterface;
 using Shared.Interfaces.BusinessLayerInterfaces;
 using DAL.Domain;
 using Shared.DTO;
+using Shared.Enums;
 using Shared.MessageFormat;
 
 namespace BL.BusinessLogics
@@ -129,7 +130,7 @@ namespace BL.BusinessLogics
            
             userDTO.CreatedOn = DateTime.Now;
             userDTO.ModifiedOn = DateTime.Now;
-         
+            userDTO.IsApprover = BooleanType.False;
             RequestMessageFormat<UserDTO> response = new RequestMessageFormat<UserDTO>();
 
             if (this.CheckEmptyData(userDTO))

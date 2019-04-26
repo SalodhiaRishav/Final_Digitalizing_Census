@@ -12,10 +12,14 @@ using System.Web.Mvc;
 using Shared.MessageFormat;
 using BL.BusinessLogics;
 using Shared.Interfaces.BusinessLayerInterfaces;
+using System.Web.Http.Cors;
+
+
 //using System.Web.Mvc;
 
 namespace My_Digitalizing_Census_Project.Controllers
 {
+    //[EnableCors(origins: "http://localhost:1305/api/user", headers: "*", methods: "*")]
     public class UserController : ApiController
     {
 
@@ -26,29 +30,28 @@ namespace My_Digitalizing_Census_Project.Controllers
             UserBusinessLogic = userBusinessLayer;
         }
 
-        [System.Web.Mvc.HttpGet]
-        public JsonResult<RequestMessageFormat<List<UserDTO>>> GetAll()
+
+        public HttpResponseMessage GetAll()
         {
-            return Json(this.UserBusinessLogic.GetAll());
+            return Request.CreateResponse(HttpStatusCode.OK,this.UserBusinessLogic.GetAll());
         }
 
         [System.Web.Mvc.HttpGet]
-        public JsonResult<RequestMessageFormat<UserDTO>> Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-
-            return Json(this.UserBusinessLogic.GetById(id));
+            return Request.CreateResponse(HttpStatusCode.OK, this.UserBusinessLogic.GetById(id));        
         }
 
         [System.Web.Mvc.HttpPost]
-        public JsonResult<RequestMessageFormat<UserDTO>> Add([FromBody]UserDTO userDTO)
+        public HttpResponseMessage Add([FromBody]UserDTO userDTO)
         {
-            return Json(this.UserBusinessLogic.Add(userDTO));
+            return Request.CreateResponse(HttpStatusCode.OK, this.UserBusinessLogic.Add(userDTO));
         }
 
         [System.Web.Mvc.HttpDelete]
-        public JsonResult<RequestMessageFormat<UserDTO>> Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
-            return Json(this.UserBusinessLogic.Delete(id));
+            return Request.CreateResponse(HttpStatusCode.OK, this.UserBusinessLogic.Delete(id));
         }
 
         //[System.Web.Mvc.HttpPatch]
