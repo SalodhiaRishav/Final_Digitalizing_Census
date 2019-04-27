@@ -14,6 +14,7 @@ namespace Shared.DTO
         public int UserId { get; set; }
 
         public UserRequestStatusType UserRequestType { get; set; }
+        
     
         public DateTime ModifiedOn { get; set; }
 

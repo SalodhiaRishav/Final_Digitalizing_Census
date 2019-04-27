@@ -7,7 +7,7 @@ using Shared.Enums;
 
 namespace Shared.DTO
 {
-    public class UserDTO
+    public class FetchedUserDTO
     {
         public int ID { get; set; }
 
@@ -29,7 +29,7 @@ namespace Shared.DTO
 
         public DateTime CreatedOn { get; set; }
 
-      
+        public UserRequestStatusType UserRequestStatus { get; set; }
 
     }
 }

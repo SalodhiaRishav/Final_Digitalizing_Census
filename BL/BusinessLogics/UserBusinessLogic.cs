@@ -56,6 +56,7 @@ namespace BL.BusinessLogics
             return response;
         }
 
+
         public RequestMessageFormat<UserDTO> GetById(int id)
         {
             User user = this.UserRepository.FindById(id);

@@ -8,6 +8,7 @@ using DAL.RepositoryInterface;
 using Shared.DTO;
 using Shared.MessageFormat;
 using DAL.Domain;
+using Shared.Enums;
 
 namespace BL.BusinessLogics
 {
@@ -108,6 +109,37 @@ namespace BL.BusinessLogics
             }
             return response;
         }
+        //public RequestMessageFormat<List<UserCurrentRequestStatusDTO>> GetByStatus(string status)
+        //{
+        //    List<UserCurrentRequestStatus> userCurrentRequestStatusList = new List<UserCurrentRequestStatus>();  
+        //        if(status=="declined")
+        //        {
+        //        userCurrentRequestStatusList = this.UserCurrentRequestStatusRepository.List.Find((item) => item.UserRequestType == UserRequestStatusType.Pending);
+        //    }
+        //    else if(status=="pending")
+        //        {
+
+        //        }if(status=="approved")
+        //        {
+
+        //        }
+               
+        //    List<UserCurrentRequestStatusDTO> userCurrentRequestStatusDTOList = this.AutoMapperConfigurations.UserCurrentRequestStatusListToUserCurrentRequestStatusDTOList(userCurrentRequestStatusList);
+        //    RequestMessageFormat<List<UserCurrentRequestStatusDTO>> response = new RequestMessageFormat<List<UserCurrentRequestStatusDTO>>();
+        //    if (userCurrentRequestStatusList.Count == 0)
+        //    {
+        //        response.Data = null;
+        //        response.Success = false;
+        //        response.Message = "Empty List";
+        //    }
+        //    else
+        //    {
+        //        response.Data = userCurrentRequestStatusDTOList;
+        //        response.Success = true;
+        //        response.Message = "Data fetched successfully";
+        //    }
+        //    return response;
+        //}
 
         public RequestMessageFormat<UserCurrentRequestStatusDTO> GetById(int id)
         {
