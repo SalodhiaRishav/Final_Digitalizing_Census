@@ -16,12 +16,14 @@ namespace BL.BusinessLogics
     {
         private AutoMapperConfigurations AutoMapperConfigurations = new AutoMapperConfigurations();
         private IUserRepository UserRepository;
+        private IUserCurrentRequestStatusRepository UserCurrentRequestStatusRepository;
        //todo
        // private List<User> UserCacheList=null;
      
-        public UserBusinessLogic(IUserRepository userRepository)
+        public UserBusinessLogic(IUserRepository userRepository,IUserCurrentRequestStatusRepository userCurrentRequestStatusRepository)
         {      
             UserRepository = userRepository;
+            UserCurrentRequestStatusRepository = userCurrentRequestStatusRepository;
         }
 
         //todo
@@ -166,6 +168,13 @@ namespace BL.BusinessLogics
             {
                 response.Message = "Added Successfully";
                 userDTO.ID = user.ID;
+                UserCurrentRequestStatus userCurrentRequestStatus = new UserCurrentRequestStatus();
+                userCurrentRequestStatus.UserId = user.ID;
+                userCurrentRequestStatus.UserRequestType = UserRequestStatusType.Pending;
+                userCurrentRequestStatus.CreatedOn = DateTime.Now;
+                userCurrentRequestStatus.ModifiedOn = DateTime.Now;
+                
+                this.UserCurrentRequestStatusRepository.Add(userCurrentRequestStatus);
                 
                 response.Data = userDTO;
                 response.Success = true;
@@ -181,6 +190,47 @@ namespace BL.BusinessLogics
 
           
 
+        }
+
+        public RequestMessageFormat<LoginedUserDTO> LoginUser(LoginUserDTO loginUserDTO)
+        {
+            RequestMessageFormat<LoginedUserDTO> response = new RequestMessageFormat<LoginedUserDTO>();
+
+            int count = this.UserRepository.Find(user => user.Email == loginUserDTO.Email).ToList().Count();
+
+            if (count == 0)
+            {
+                response.Data = null;
+                response.Message = "No User found with this email";
+                response.Success = false;
+                return response;
+            }
+            else
+            {
+                count = 0;
+                count= this.UserRepository.Find(user => user.Email == loginUserDTO.Email && user.Password == loginUserDTO.Password).ToList().Count();
+                if(count!=0)
+                {
+                    User user = this.UserRepository.Find(theuser => theuser.Email == loginUserDTO.Email).ToList().First();
+                    UserCurrentRequestStatus userCurrentRequestStatus = this.UserCurrentRequestStatusRepository.Find(status => status.UserId == user.ID).ToList().First();
+                    LoginedUserDTO loginedUserDTO= this.AutoMapperConfigurations.UserToLoginedUserDTO(user);
+                    loginedUserDTO.UserRequestStatus = userCurrentRequestStatus.UserRequestType;
+
+                    response.Data = loginedUserDTO;
+
+                    response.Message = "You are successfully loggedIn";
+                    response.Success = true;
+                    return response;
+                }
+              else
+                {
+                    response.Data = null;
+                    response.Message = "Incorrect Password";
+                    response.Success = false;
+                    return response;
+                }
+
+            }
         }
         public RequestMessageFormat<UserDTO> Delete(int id)
         {

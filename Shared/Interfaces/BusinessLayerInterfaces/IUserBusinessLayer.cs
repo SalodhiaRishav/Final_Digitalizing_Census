@@ -16,6 +16,7 @@ namespace Shared.Interfaces.BusinessLayerInterfaces
         RequestMessageFormat<UserDTO> GetById(int id);
         RequestMessageFormat<UserDTO> Delete(int id);
         RequestMessageFormat<UserDTO> Update(UserDTO userDTO);
+        RequestMessageFormat<LoginedUserDTO> LoginUser(LoginUserDTO loginUserDTO);
 
     }
 }

@@ -17,6 +17,7 @@ namespace BL
             MapperConfiguration config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<House, HouseDTO>().ReverseMap();
+                cfg.CreateMap<User, LoginedUserDTO>().ReverseMap();
                 cfg.CreateMap<HouseMember, HouseMemberDTO>().ReverseMap();
                 cfg.CreateMap<User, UserDTO>().ReverseMap();
                 cfg.CreateMap<UserCurrentRequestStatus, UserCurrentRequestStatusDTO>().ReverseMap();
@@ -70,6 +71,11 @@ namespace BL
         public UserDTO UserToUserDTO(User user)
         {
             return Mapper.Map<UserDTO>(user);
+        }
+
+        public LoginedUserDTO UserToLoginedUserDTO(User user)
+        {
+            return Mapper.Map<LoginedUserDTO>(user);
         }
 
         public User UserDTOToUser(UserDTO userDTO)
