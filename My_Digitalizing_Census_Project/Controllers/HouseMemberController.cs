@@ -53,8 +53,8 @@ namespace My_Digitalizing_Census_Project.Controllers
            
         }
 
-        [System.Web.Mvc.HttpPatch]
-        public HttpResponseMessage UpdateHouse([FromBody]HouseMemberDTO houseMemberDTO)
+        [System.Web.Mvc.HttpPut]
+        public HttpResponseMessage Put([FromBody]HouseMemberDTO houseMemberDTO)
         {
             return Request.CreateResponse(HttpStatusCode.OK, this.HouseMemberBusinessLogic.Update(houseMemberDTO));
 

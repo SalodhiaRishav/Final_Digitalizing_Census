@@ -54,11 +54,12 @@ namespace My_Digitalizing_Census_Project.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, this.UserBusinessLogic.Delete(id));
         }
 
-        //[System.Web.Mvc.HttpPatch]
-        //public JsonResult<RequestMessageFormat<UserDTO>> UpdateUser([FromBody]UserDTO userDTO)
-        //{
-        //    return Json(this.UserBusinessLogic.UpdateUser(userDTO));
-        //}
+        public HttpResponseMessage UpdateUser([FromBody]UserDTO userDTO)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, this.UserBusinessLogic.Update(userDTO));
+
+        
+        }
 
     }
 }

@@ -49,11 +49,13 @@ namespace My_Digitalizing_Census_Project.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, this.HouseBusinessLogic.Delete(id));
         }
 
-        //[System.Web.Mvc.HttpPatch]
-        //public JsonResult<RequestMessageFormat<UserDTO>> UpdateHouse([FromBody]UserDTO userDTO)
-        //{
-        //    return Json(this.UserBusinessLogic.UpdateUser(userDTO));
-        //}
+        [System.Web.Mvc.HttpPut]
+        public HttpResponseMessage Put([FromBody]HouseDTO houseDTO)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, this.HouseBusinessLogic.Update(houseDTO));
+
+           
+        }
 
     }
 }

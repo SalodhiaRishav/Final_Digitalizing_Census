@@ -46,8 +46,9 @@ namespace My_Digitalizing_Census_Project.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, this.UserCurrentRequestStatusBusinessLogic.Delete(id));
         }
 
-        [System.Web.Mvc.HttpPatch]
-        public HttpResponseMessage UpdateHouse([FromBody]UserCurrentRequestStatusDTO userCurrentRequestStatusDTO)
+
+        [System.Web.Mvc.HttpPut]
+        public HttpResponseMessage Put([FromBody]UserCurrentRequestStatusDTO userCurrentRequestStatusDTO)
         {
             return Request.CreateResponse(HttpStatusCode.OK, this.UserCurrentRequestStatusBusinessLogic.Update(userCurrentRequestStatusDTO));
           
