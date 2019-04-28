@@ -54,7 +54,7 @@ namespace My_Digitalizing_Census_Project.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, this.UserBusinessLogic.Delete(id));
         }
 
-        public HttpResponseMessage UpdateUser([FromBody]UserDTO userDTO)
+        public HttpResponseMessage Put([FromBody]UserDTO userDTO)
         {
             return Request.CreateResponse(HttpStatusCode.OK, this.UserBusinessLogic.Update(userDTO));
 
