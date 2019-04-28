@@ -20,29 +20,33 @@ namespace My_Digitalizing_Census_Project.Controllers
             HouseBusinessLogic = houseBusinessLayer;
         }
 
+        
+
         [System.Web.Mvc.HttpGet]
-        public JsonResult<RequestMessageFormat<List<HouseDTO>>> GetAll()
+        public HttpResponseMessage GetAll()
         {
-            return Json(this.HouseBusinessLogic.GetAll());
+            return Request.CreateResponse(HttpStatusCode.OK, this.HouseBusinessLogic.GetAll());
         }
 
         [System.Web.Mvc.HttpGet]
-        public JsonResult<RequestMessageFormat<HouseDTO>> Get(int id)
+        public HttpResponseMessage Get(int id)
         {
+            return Request.CreateResponse(HttpStatusCode.OK, this.HouseBusinessLogic.GetById(id));
 
-            return Json(this.HouseBusinessLogic.GetById(id));
         }
 
         [System.Web.Mvc.HttpPost]
-        public JsonResult<RequestMessageFormat<HouseDTO>> Add([FromBody]HouseDTO houseDTO)
+        public HttpResponseMessage Add([FromBody]HouseDTO houseDTO)
         {
-            return Json(this.HouseBusinessLogic.Add(houseDTO));
+            return Request.CreateResponse(HttpStatusCode.OK, this.HouseBusinessLogic.Add(houseDTO));
+
+
         }
 
         [System.Web.Mvc.HttpDelete]
-        public JsonResult<RequestMessageFormat<HouseDTO>> Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
-            return Json(this.HouseBusinessLogic.Delete(id));
+            return Request.CreateResponse(HttpStatusCode.OK, this.HouseBusinessLogic.Delete(id));
         }
 
         //[System.Web.Mvc.HttpPatch]

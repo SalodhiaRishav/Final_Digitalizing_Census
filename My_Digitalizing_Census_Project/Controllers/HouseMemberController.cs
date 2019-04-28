@@ -19,37 +19,45 @@ namespace My_Digitalizing_Census_Project.Controllers
         {
             HouseMemberBusinessLogic = houseMemberBusinessLayer;
         }
-        
 
+
+        
         [System.Web.Mvc.HttpGet]
-        public JsonResult<RequestMessageFormat<List<HouseMemberDTO>>> GetAll()
+        public HttpResponseMessage GetAll()
         {
-            return Json(this.HouseMemberBusinessLogic.GetAll());
+            return Request.CreateResponse(HttpStatusCode.OK, this.HouseMemberBusinessLogic.GetAll());
+
+       
         }
 
         [System.Web.Mvc.HttpGet]
-        public JsonResult<RequestMessageFormat<HouseMemberDTO>> Get(int id)
+        public HttpResponseMessage Get(int id)
         {
+            return Request.CreateResponse(HttpStatusCode.OK, this.HouseMemberBusinessLogic.GetById(id));
 
-            return Json(this.HouseMemberBusinessLogic.GetById(id));
         }
 
         [System.Web.Mvc.HttpPost]
-        public JsonResult<RequestMessageFormat<HouseMemberDTO>> Add([FromBody]HouseMemberDTO houseMemberDTO)
+        public HttpResponseMessage Add([FromBody]HouseMemberDTO houseMemberDTO)
         {
-            return Json(this.HouseMemberBusinessLogic.Add(houseMemberDTO));
+            return Request.CreateResponse(HttpStatusCode.OK, this.HouseMemberBusinessLogic.Add(houseMemberDTO));
+
+        
         }
 
         [System.Web.Mvc.HttpDelete]
-        public JsonResult<RequestMessageFormat<HouseMemberDTO>> Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
-            return Json(this.HouseMemberBusinessLogic.Delete(id));
+            return Request.CreateResponse(HttpStatusCode.OK, this.HouseMemberBusinessLogic.Delete(id));
+
+           
         }
 
-        //[System.Web.Mvc.HttpPatch]
-        //public JsonResult<RequestMessageFormat<UserDTO>> UpdateHouse([FromBody]UserDTO userDTO)
-        //{
-        //    return Json(this.UserBusinessLogic.UpdateUser(userDTO));
-        //}
+        [System.Web.Mvc.HttpPatch]
+        public HttpResponseMessage UpdateHouse([FromBody]HouseMemberDTO houseMemberDTO)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, this.HouseMemberBusinessLogic.Update(houseMemberDTO));
+
+        }
     }
 }

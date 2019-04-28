@@ -161,9 +161,33 @@ namespace BL.BusinessLogics
             return response;
         }
 
-        public RequestMessageFormat<UserCurrentRequestStatusDTO> Update(UserCurrentRequestStatusDTO userDTO)
+        public RequestMessageFormat<UserCurrentRequestStatusDTO> Update(UserCurrentRequestStatusDTO userCurrentRequestStatusDTO)
         {
-            throw new NotImplementedException();
+            RequestMessageFormat<UserCurrentRequestStatusDTO> response = new RequestMessageFormat<UserCurrentRequestStatusDTO>();
+
+            userCurrentRequestStatusDTO.ModifiedOn = DateTime.Now;
+            UserCurrentRequestStatus userCurrentRequestStatus = this.AutoMapperConfigurations.UserCurrentRequestStatusDTOToUserCurrentRequestStatus(userCurrentRequestStatusDTO);
+
+            bool isUpdated = this.UserCurrentRequestStatusRepository.Update(userCurrentRequestStatus);
+            if (isUpdated)
+            {
+                response.Message = "Updated Successfully";
+                response.Data = userCurrentRequestStatusDTO;
+                response.Success = true;
+                return response;
+            }
+            else
+            {
+                response.Message = "Some Error Occurred";
+                response.Success = false;
+                response.Data = null;
+                return response;
+
+
+            }
+
+
+          
         }
     }
 }

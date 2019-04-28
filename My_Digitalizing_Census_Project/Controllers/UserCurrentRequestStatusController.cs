@@ -21,36 +21,37 @@ namespace My_Digitalizing_Census_Project.Controllers
             UserCurrentRequestStatusBusinessLogic = userCurrentRequestStatusBusinessLayer;
         }
 
+
         [System.Web.Mvc.HttpGet]
-        public JsonResult<RequestMessageFormat<List<UserCurrentRequestStatusDTO>>> GetAll()
+        public HttpResponseMessage GetAll()
         {
-            return Json(this.UserCurrentRequestStatusBusinessLogic.GetAll());
+            return Request.CreateResponse(HttpStatusCode.OK, this.UserCurrentRequestStatusBusinessLogic.GetAll());
         }
 
         [System.Web.Mvc.HttpGet]
-        public JsonResult<RequestMessageFormat<UserCurrentRequestStatusDTO>> Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-
-            return Json(this.UserCurrentRequestStatusBusinessLogic.GetById(id));
+            return Request.CreateResponse(HttpStatusCode.OK, this.UserCurrentRequestStatusBusinessLogic.GetById(id));
         }
 
         [System.Web.Mvc.HttpPost]
-        public JsonResult<RequestMessageFormat<UserCurrentRequestStatusDTO>> Add([FromBody]UserCurrentRequestStatusDTO userCurrentRequestStatusDTO)
+        public HttpResponseMessage Add([FromBody]UserCurrentRequestStatusDTO userCurrentRequestStatusDTO)
         {
-            return Json(this.UserCurrentRequestStatusBusinessLogic.Add(userCurrentRequestStatusDTO));
+            return Request.CreateResponse(HttpStatusCode.OK, this.UserCurrentRequestStatusBusinessLogic.Add(userCurrentRequestStatusDTO));
         }
 
         [System.Web.Mvc.HttpDelete]
-        public JsonResult<RequestMessageFormat<UserCurrentRequestStatusDTO>> Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
-            return Json(this.UserCurrentRequestStatusBusinessLogic.Delete(id));
+            return Request.CreateResponse(HttpStatusCode.OK, this.UserCurrentRequestStatusBusinessLogic.Delete(id));
         }
 
-        //[System.Web.Mvc.HttpPatch]
-        //public JsonResult<RequestMessageFormat<UserDTO>> UpdateHouse([FromBody]UserDTO userDTO)
-        //{
-        //    return Json(this.UserBusinessLogic.UpdateUser(userDTO));
-        //}
+        [System.Web.Mvc.HttpPatch]
+        public HttpResponseMessage UpdateHouse([FromBody]UserCurrentRequestStatusDTO userCurrentRequestStatusDTO)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, this.UserCurrentRequestStatusBusinessLogic.Update(userCurrentRequestStatusDTO));
+          
+        }
 
     }
 }
