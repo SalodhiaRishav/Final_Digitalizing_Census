@@ -25,8 +25,7 @@ namespace DAL.UnitOfWork
             }
             catch (DataException)
             {
-                throw new DatabaseUpdationException("Error while Updating Data In database");
-
+                throw new DatabaseUpdationException("Error while Updating Data In database");            
             }
 
             return true;
