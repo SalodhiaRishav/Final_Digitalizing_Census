@@ -28,12 +28,22 @@ namespace My_Digitalizing_Census_Project.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, this.HouseBusinessLogic.GetAll());
         }
 
+        [Route("/api/house/")]
+        [System.Web.Mvc.HttpGet]
+        public HttpResponseMessage GetStateReport(string state)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, this.HouseBusinessLogic.GetAll());
+        }
+
         [System.Web.Mvc.HttpGet]
         public HttpResponseMessage Get(int id)
         {
             return Request.CreateResponse(HttpStatusCode.OK, this.HouseBusinessLogic.GetById(id));
 
         }
+
+        
+      
 
         [System.Web.Mvc.HttpPost]
         public HttpResponseMessage Add([FromBody]HouseDTO houseDTO)
