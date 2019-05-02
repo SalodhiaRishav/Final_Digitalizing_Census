@@ -15,6 +15,6 @@ namespace Shared.Interfaces.BusinessLayerInterfaces
         RequestMessageFormat<HouseDTO> GetById(int id);
         RequestMessageFormat<HouseDTO> Delete(int id);
         RequestMessageFormat<HouseDTO> Update(HouseDTO houseDTO);
-        int StatePopulation(string state);
+        List<int> StatePopulation();
     }
 }

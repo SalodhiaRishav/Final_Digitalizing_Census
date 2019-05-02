@@ -192,21 +192,35 @@ namespace BL.BusinessLogics
             return response;
         }
 
-        public int StatePopulation(string state)
+        public List<int> StatePopulation()
         {
-            List<House> houses = this.HouseRepository.Find(house => house.State == state).ToList();
-           if(houses.Count==0)
+             List<string> StateArray = new List<string>() { "Andaman & Nicobar", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Dadra & Nagar Haveli", "Daman & Diu", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu & Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Orissa", "Pondicherry", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Tripura", "Uttar Pradesh", "Uttaranchal", "West Bengal" };
+            List<int> statePopulation = new List<int>();
+            foreach(string state in StateArray)
             {
-                return 0;
-            }
 
-            int populationCount = 0;
-           foreach(House house in houses)
-            {
-               int counted= this.HouseMemberRepository.Find(houseMember => houseMember.HouseId == house.ID).ToList().Count;
-                populationCount = populationCount + counted;
+                List<House> houses = this.HouseRepository.Find(house => house.State == state).ToList();
+                if (houses.Count == 0)
+                {
+                    statePopulation.Add(0);
+
+                }
+                else
+                {
+                    int populationCount = 0;
+                    foreach (House house in houses)
+                    {
+                        int counted = this.HouseMemberRepository.Find(houseMember => houseMember.HouseId == house.ID).ToList().Count;
+                        populationCount = populationCount + counted;
+                    }
+                    statePopulation.Add(populationCount);
+
+                  
+                }
             }
-            return populationCount;
+            return statePopulation;
+
+       
                 
         }
         //todo
