@@ -125,6 +125,12 @@ namespace My_Digitalizing_Census_Project.Controllers
 
             string path = HttpContext.Current.Server.MapPath("~/Images/") + imageName;
             string base64String;
+            string tempstring = "somelink.png";
+            int result = string.Compare(tempstring, imageName);
+            if (result==0)
+            {
+                return null;
+            }
             using (System.Drawing.Image image = System.Drawing.Image.FromFile(path))
             {
                 using (MemoryStream m = new MemoryStream())

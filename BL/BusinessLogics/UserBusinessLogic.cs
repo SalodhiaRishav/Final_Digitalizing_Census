@@ -230,9 +230,22 @@ namespace BL.BusinessLogics
                     if (count != 0)
                     {
                         User user = this.UserRepository.Find(theuser => theuser.Email == loginUserDTO.Email).ToList().First();
-                        UserCurrentRequestStatus userCurrentRequestStatus = this.UserCurrentRequestStatusRepository.Find(status => status.UserId == user.ID).ToList().First();
+                       if(user.IsApprover==BooleanType.True)
+                        {
+                            LoginedUserDTO loginedUserDTO1 = this.AutoMapperConfigurations.UserToLoginedUserDTO(user);
+                            response.Data = loginedUserDTO1;
+
+                            response.Message = "You are successfully loggedIn";
+                            response.Success = true;
+                            return response;
+                        }
+                      
                         LoginedUserDTO loginedUserDTO = this.AutoMapperConfigurations.UserToLoginedUserDTO(user);
-                        loginedUserDTO.UserRequestStatus = userCurrentRequestStatus.UserRequestType;
+
+
+                        UserCurrentRequestStatus userCurrentRequestStatus =this.UserCurrentRequestStatusRepository.Find(status => status.UserId == user.ID).ToList().First();
+                            loginedUserDTO.UserRequestStatus = userCurrentRequestStatus.UserRequestType;
+
 
                         response.Data = loginedUserDTO;
 
