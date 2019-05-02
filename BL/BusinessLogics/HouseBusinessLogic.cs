@@ -16,9 +16,12 @@ namespace BL.BusinessLogics
     {
         AutoMapperConfigurations AutoMapperConfigurations;
         private IHouseRepository HouseRepository;
-        public HouseBusinessLogic(IHouseRepository houseRepository)
+        private IHouseMemberRepository HouseMemberRepository;
+        public HouseBusinessLogic(IHouseRepository houseRepository,
+           IHouseMemberRepository houseMemberRepository)
         {
             HouseRepository = houseRepository;
+            HouseMemberRepository = houseMemberRepository;
             AutoMapperConfigurations = new AutoMapperConfigurations();
         }
 
@@ -189,6 +192,23 @@ namespace BL.BusinessLogics
             return response;
         }
 
+        public int StatePopulation(string state)
+        {
+            List<House> houses = this.HouseRepository.Find(house => house.State == state).ToList();
+           if(houses.Count==0)
+            {
+                return 0;
+            }
+
+            int populationCount = 0;
+           foreach(House house in houses)
+            {
+               int counted= this.HouseMemberRepository.Find(houseMember => houseMember.HouseId == house.ID).ToList().Count;
+                populationCount = populationCount + counted;
+            }
+            return populationCount;
+                
+        }
         //todo
         public RequestMessageFormat<HouseDTO> Update(HouseDTO houseDTO)
         {

@@ -32,7 +32,7 @@ namespace My_Digitalizing_Census_Project.Controllers
         [System.Web.Mvc.HttpGet]
         public HttpResponseMessage GetStateReport(string state)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, this.HouseBusinessLogic.GetAll());
+            return Request.CreateResponse(HttpStatusCode.OK, this.HouseBusinessLogic.StatePopulation(state));
         }
 
         [System.Web.Mvc.HttpGet]
